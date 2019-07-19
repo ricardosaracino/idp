@@ -86,105 +86,6 @@ if ((gotoURL != null) && (gotoURL.length() != 0)) {
 <!-- CSSEnd -->
 
 <script src="<%= ServiceURI %>/js/lib/jquery.min.js"></script>
-
-			<script  language="JavaScript" type="text/javascript">			
-			
-			    // Test domain value
-	    		#var domain_name = ".domain.net";
-				// Template placeholder for the domain value
-		    	var domain_name = "##DOMAIN_NAME##";
-			    
-				function htmlEncode(value){
-				    if (value) {
-				        return jQuery('<div />').text(value).html();
-				    } else {
-				        return '';
-				    }
-				}
-				
-		        function setCookie(name, value, domain, secure, handler) {
-		            document.cookie = name + "=" + value + ";path=/;domain=" + domain;
-		        }
-
-		        function getCookie(name) {
-		            var nameEQ = name + "=", ca = document.cookie.split(';'), i = 0, c;
-		            for (; i < ca.length; i++) {
-		                c = ca[i];
-		                while (c[0] == ' ') c = c.substring(1);
-		                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length);
-		            }
-		            return null;
-		        }
-
-		        function switch_to_fra() {
-	                $("#lilang").html("English");
-	            	$("#cn-site-title").html("<p id=\"cn-site-title-inner\"><a target=\"_blank\" href=\"home-accueil-megamenu-theme-gcwu-fegc-eng.html\">Simulateur de service fournisseur de justificatifs</a></p>");
-	        	    $("#cn-gcnb3").html("<a target=\"_blank\" rel=\"external\" href=\"http://www.canada.gc.ca/depts/major/depind-fra.html\">Départements</a>");
-	        	    
-	        	    $("#login_legend").html("<legend>Se connecter</legend>");
-	        	    $("#username_legend").html("<label for=\"IDToken1\">Nom de l'utilisateur:</label>");
-	        	    $("#password_legend").html("<label for=\"IDToken2\">Mot de passe:</label>");
-	        	    $("#buttons").html("<input class=\"width-70\" name=\"IDButton\" type=\"submit\" id=\"IDButton\" value=\"Connecter\" />"
-	        	    	+ "<input class=\"width-20 float-right\" name=\"reset\" type=\"reset\" id=\"reset\" value=\"Effacer Tout\" />");
-		        }
-		        
-		        function switch_to_eng() {
-	                $("#lilang").html("Français");
-	            	$("#cn-site-title").html("<p id=\"cn-site-title-inner\"><a target=\"_blank\" href=\"home-accueil-megamenu-theme-gcwu-fegc-eng.html\">IDP Simulator</a></p>");
-	            	$("#cn-gcnb3").html("<a target=\"_blank\" rel=\"external\" href=\"http://www.canada.gc.ca/depts/major/depind-eng.html\">Departments</a>");
-	        	    
-	        	    $("#login_legend").html("<legend>Login</legend>");
-	        	    $("#username_legend").html("<label for=\"IDToken1\">Username:</label>");
-	        	    $("#password_legend").html("<label for=\"IDToken2\">Password:</label>");
-	        	    $("#buttons").html("<input class=\"width-70\" name=\"IDButton\" type=\"submit\" id=\"IDButton\" value=\"Login\" />"
-		        	    	+ "<input class=\"width-20 float-right\" name=\"reset\" type=\"reset\" id=\"reset\" value=\"Clear\" />");
-				}
-		        
-		        function init() {
-		        	
-		            var field = getCookie('_gc_lang');
-		            //var field = 'eng';
-
-		            if (field == 'fra') {
-		            	switch_to_fra();
-		            } else {
-		            	switch_to_eng();
-
-		                if (field != 'eng') {
-		                    setCookie('_gc_lang', 'eng', domain_name, 'n', function (result) {
-		                        $.each(result, function (i, field) {
-		                            //$("li").append(field + " ");
-		                        });
-		                    });
-		                }
-		            }
-		        }
-
-		        $(init);
-
-		        $(document).ready(function () {
-
-		            $("#lilang").toggle(
-		               function () {
- 		            	   switch_to_fra();
-		                   setCookie('_gc_lang', 'fra', domain_name, 'n', function (result) {
-		                       $.each(result, function (i, field) {
-		                           //$("li").append(field + " ");
-		                       });
-		                   });
-		                   
-		               }, function () {
- 		            	   switch_to_eng();
-		                   setCookie('_gc_lang', 'eng', domain_name, 'n', function (result) {
-		                       $.each(result, function (i, field) {
-		                           //$("li").append(field + " ");
-		                       });
-		                   });
-		               });		            
-		        });
-					
-			</script>
-
 <script src="<%= ServiceURI %>/js/pe-ap.js" id="progressive"></script>
 <script>
 /* <![CDATA[ */
@@ -215,10 +116,7 @@ PE.progress(params);
 <li id="cn-gcnb1"><a target="_blank" rel="external" href="http://www.canada.gc.ca/home.html">Canada.gc.ca</a></li>
 <li id="cn-gcnb2"><a target="_blank" rel="external" href="http://www.servicecanada.gc.ca/eng/home.shtml">Services</a></li>
 <li id="cn-gcnb3"><a target="_blank" rel="external" href="http://www.canada.gc.ca/depts/major/depind-eng.html">Departments</a></li>
-<li id="lilang" style="margin-right: 2px; cursor: pointer; color : white;">Français</li>
-<!-- 
 <li id="cn-gcnb-lang"><a href="application-fra.html" lang="fr">Français</a></li>
- -->
 </ul>
 </div></div></div></nav>
 
@@ -258,20 +156,11 @@ PE.progress(params);
     			defaultCommandChild="DefaultLoginURL" >
 			<div class="module-form-fluid margin-bottom-none">
 				<fieldset>
-					<!-- 
 					<legend>Login</legend>
 					<label for="IDToken1">Username:</label> <input name="IDToken1" type="text" id="IDToken1" />
 					<label for="IDToken2">Password:</label> <input name="IDToken2" type="password" id="IDToken2" />
 					<input class="width-70" name="IDButton" type="submit" id="IDButton" value="Login" />
 					<input class="width-20 float-right" name="reset" type="reset" id="reset" value="Clear" />
-					 -->
-					<div id="login_legend"><legend>Login</legend></div>
-					<div id="username_legend"><label for="IDToken1">Username:</label></div> <input name="IDToken1" type="text" id="IDToken1" />
-					<div id="password_legend"><label for="IDToken2">Password:</label></div> <input name="IDToken2" type="password" id="IDToken2" />
-					<div id="buttons">
-						<input class="width-70" name="IDButton" type="submit" id="IDButton" value="Login" />
-						<input class="width-20 float-right" name="reset" type="reset" id="reset" value="Clear" />
-					</div>
 				</fieldset>
 			</div>
 			<div class="margin-top-none margin-bottom-none align-center">
