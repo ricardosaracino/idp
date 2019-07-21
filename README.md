@@ -1,7 +1,8 @@
 # idp
 
 [openam files](https://github.com/ricardosaracino/openam)
-[openam git]{https://github.com/ForgeRock/openam-community-edition}
+
+[openam git](https://github.com/ForgeRock/openam-community-edition)
 
 ### Install
 ``` shell
