@@ -7,6 +7,7 @@
 ### Install
 ``` shell
 yum install java
+yum install java-1.7.0-openjdk-devel
 yum install tomcat
 yum install tomcat-admin-webapps
 yum install maven
