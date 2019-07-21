@@ -8,6 +8,7 @@
 yum install java
 yum install tomcat
 yum install tomcat-admin-webapps
+yum install maven
 yum install unzip
 ```
 
